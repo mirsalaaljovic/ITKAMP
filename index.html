@@ -4,84 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <title>Document</title>
     <style>
-        .task-item {
-            width: 100px;
-            height: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid black;
-        }
+    
+        
     </style>
 </head>
 
 <body>
-    <div class="add-task">
-        <input type="text" name="taskText" id="task-text" value="" placeholder="Unesite text"
-            onChange="createTask(this)">
-        <button onclick="addTask()">Add task</button>
+   
+<h1 class ="tittle">
+    To Do List 
+</h1>
+    <div class ="todo-list">
+        <div class = "list-head">
+            <input type="text" class="entered-list">
+            <button class="add-list">  Add </button>
+        </div>
     </div>
-    <ul class="todo-task-list" id="todo-task-list">
-    </ul>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <div class = "tasks">
+        <div class ="item completed">
+            <p> new item here</p>
+        <div class="item-btn">
+        <i class="fa-solid fa-check"></i>
+        <i class="fa-regular fa-xmark"></i>
+     </div>
+   
+    </div>
+    <script src="app.js"></script>
     <script>
-        const todoList = []
-
-        let todoTask = {}
-
-        function createTask(el) {
-            todoTask.text = el.value
-            todoTask.isDone = false
-        }
-
-        function addTask() {
-            if (!todoTask.text) {
-                return
-            }
-
-            todoList.push(todoTask)
-            todoTask = {}
-            document.getElementById('task-text').value = ""
-            console.log(todoList);
-            showTodoList()
-        }
-
-        function isDoneBox(isDoneArg) {
-            const isDoneInp = document.createElement("input")
-            isDoneInp.type = 'checkbox'
-            isDoneInp.checked = isDoneArg
-            isDoneInp.onchange = setToDoneTask()
-            return isDoneInp
-        }
-
-
-        function setToDoneTask() {
-
-        }
-
-
-        function showTodoList() {
-            const listContainer = document.getElementById('todo-task-list')
-            listContainer.innerHTML = ""
-
-            todoList.forEach((task) => {
-                const tEl = document.createElement('li')
-                tEl.classList.add('task-item')
-                tEl.innerHTML = task.text
-
-
-
-                tEl.appendChild(isDoneBox(task.isDone))
-
-                listContainer.appendChild(tEl)
-            })
-        }
-
-
+        
     </script>
 </body>
 
